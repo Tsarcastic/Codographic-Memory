@@ -42,6 +42,8 @@ function generateRay(array) { //Function to render 9 images
     for (var i = 0; i < newRay.length) {
       if (newRay.indexOf(thisPic) === -1) {
         newRay.push(thisPic);
+      } else {
+        console.log('That\'s a duplicate. Rolling again.')
       }
     }
 
