@@ -56,10 +56,10 @@ function randomImg(array) {
 }
 //
 function appendAll(theArray){
-  for (var i = 0 ; i < 3 ; i++){
+  // for (var i = 0 ; i < 3 ; i++){
     var point = 0;
     var trEl = document.createElement('tr');
-    for (var j = 0; j < 3; j++){
+    for (var j = 0; j < 9; j++){
       var imgEl = document.createElement('img');
       imgEl.src = newRay[point].path;
       imgEl.name = newRay[point].name;
@@ -69,6 +69,7 @@ function appendAll(theArray){
     table.appendChild(trEl);
   }
 
-};
+// };
 
 generateRay(array1);
+appendAll(newRay);
