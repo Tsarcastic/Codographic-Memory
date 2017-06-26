@@ -40,16 +40,16 @@ function generateRay(array) { //Function to render 9 images
   newRay.push(thisPic);
   while (newRay.length < 9) {
     var thatPic = randomImg(array);
-    newRay.push(thisPic);
-    // for (var i = 0; i < newRay.length; i++) {
-      // if (newRay[i].name != thisPic.name) {
-        // newRay.push(thisPic);
-      // } else {
-      //   console.log('That\'s a duplicate. Rolling again.')
+    console.log(thatPic)
+    for (var i = 0; i < newRay.length; i++) {
+      if (newRay.indexOf(thatPic) === -1) {
+        newRay.push(thatPic);
+        console.log('Pushing' + thatPic + "to newRay.");
       }
+      continue;
     };
-  // };
-// };
+  };
+};
 
 function randomImg(array) {
   var spot = Math.floor(Math.random() * ((array).length));
