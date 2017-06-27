@@ -1,5 +1,6 @@
 'use strict';
 var table = document.getElementById('pinhere');
+var divvy = document.getElementById('clicky');
 var allArrays = []; //This is ALL our arrays
 var array1 = [];  //First set of images
 var newRay = []; //The current array
@@ -68,28 +69,30 @@ function generateRay(array) { //Function to render 9 images
 };
 // Appending 9 images from (theArray)
 function appendAll(theArray){
-    var point = 0;
-    var trEl = document.createElement('tr');
-    for (var j = 0; j < 9; j++){
-      var imgEl = document.createElement('img');
-      imgEl.src = newRay[point].path;
-      imgEl.name = newRay[point].name;
-      trEl.appendChild(imgEl);
-      point++;
-    }
-    table.appendChild(trEl);
-  };
+  var point = 0;
+  var trEl = document.createElement('tr');
+  for (var j = 0; j < 9; j++){
+    var imgEl = document.createElement('img');
+    imgEl.src = newRay[point].path;
+    imgEl.name = newRay[point].name;
+    trEl.appendChild(imgEl);
+    point++;
+  }
+  table.appendChild(trEl);
+};
 
-  function renderBacks(theArray){
-    var point = 0;
-    var trEl = document.createElement('tr');
-    for (var j = 0; j < 9; j++){
-      var imgEl = document.createElement('img');
-      imgEl.src = cardBack;
-      trEl.appendChild(imgEl);
-    }
-    table.appendChild(trEl);
-  };
+function renderBacks(theArray){
+  var point = 0;
+  var trEl = document.createElement('tr');
+  for (var j = 0; j < 9; j++){
+    var imgEl = document.createElement('img');
+    imgEl.src = cardBack;
+    trEl.appendChild(imgEl);
+  }
+  table.appendChild(trEl);
+};
+
+
 
 // Removes 1 image from the first 9 generated
 
@@ -128,5 +131,22 @@ function clearImages() {
   }
 }
 
+// function firstClick() {
+//   event.preventdefault();
+//   clearImages();
+//   appendAll(newRay);
+// }
+
+document.getElementById('pinhere').addEventListener('click', handleClick);
+
+function handleClick(event) {
+  event.preventDefault();
+  clearImages();
+  renderBacks();
+  setTimeout(clearImages, 5000);
+  // replaceImage(newRay);
+  // appendAll(newRay);
+
+}
 generateRay(array1); //Make that array
 appendAll(newRay); //Append the hell out of it
