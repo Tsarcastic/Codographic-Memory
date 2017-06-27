@@ -12,22 +12,22 @@ function imgArray(name, path) {//This is our constructor function
   // console.log(this.name + "was sucessfully created.");
 }
 
-new imgArray('pic02', 'Img pictures/pic2.jpg');
-new imgArray('pic03', 'Img pictures/pic3.jpg');
-new imgArray('pic04', 'Img pictures/pic4.jpg');
-new imgArray('pic05', 'Img pictures/pic5.jpg');
-new imgArray('pic06', 'Img pictures/pic6.jpg');
-new imgArray('pic07', 'Img pictures/pic7.jpg');
-new imgArray('pic08', 'Img pictures/pic8.jpg');
-new imgArray('pic09', 'Img pictures/pic9.jpg');
-new imgArray('pic10', 'Img pictures/bag.jpg');
-new imgArray('pic11', 'Img pictures/banana.jpg');
-new imgArray('pic12', 'Img pictures/bathroom.jpg');
-new imgArray('pic13', 'Img pictures/boots.jpg');
-new imgArray('pic14', 'Img pictures/breakfast.jpg');
-new imgArray('pic15','Img pictures/bubblegum.jpg');
-new imgArray('pic16', 'Img pictures/bus.jpg');
-new imgArray('pic17', 'Img pictures/chair.jpg');
+new imgArray('pic31', 'Img pictures/pic31.jpg');
+new imgArray('pic32', 'Img pictures/pic32.jpg');
+new imgArray('pic33', 'Img pictures/pic33.jpg');
+new imgArray('pic34', 'Img pictures/pic34.jpg');
+new imgArray('pic35', 'Img pictures/pic35.jpg');
+new imgArray('pic36', 'Img pictures/pic36.jpg');
+new imgArray('pic37', 'Img pictures/pic37.jpg');
+new imgArray('pic38', 'Img pictures/pic38.jpg');
+new imgArray('pic39', 'Img pictures/pic39.jpg');
+new imgArray('pic40', 'Img pictures/pic40.jpg');
+new imgArray('pic41', 'Img pictures/pic41.jpg');
+new imgArray('pic42', 'Img pictures/pic42.jpg');
+new imgArray('pic43', 'Img pictures/pic43.jpg');
+new imgArray('pic44','Img pictures/pic44.jpg');
+new imgArray('pic45', 'Img pictures/pic45.jpg');
+
 // Random pic
 function randomImg(array) {
   var spot = Math.floor(Math.random() * (array.length));
