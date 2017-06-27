@@ -13,21 +13,37 @@ function imgArray(name, path) {//This is our constructor function
   // console.log(this.name + "was sucessfully created.");
 }
 
-new imgArray('pic31', 'Img pictures/pic31.jpg');
-new imgArray('pic32', 'Img pictures/pic32.jpg');
-new imgArray('pic33', 'Img pictures/pic33.jpg');
-new imgArray('pic34', 'Img pictures/pic34.jpg');
-new imgArray('pic35', 'Img pictures/pic35.jpg');
-new imgArray('pic36', 'Img pictures/pic36.jpg');
-new imgArray('pic37', 'Img pictures/pic37.jpg');
-new imgArray('pic38', 'Img pictures/pic38.jpg');
-new imgArray('pic39', 'Img pictures/pic39.jpg');
-new imgArray('pic40', 'Img pictures/pic40.jpg');
-new imgArray('pic41', 'Img pictures/pic41.jpg');
-new imgArray('pic42', 'Img pictures/pic42.jpg');
-new imgArray('pic43', 'Img pictures/pic43.jpg');
-new imgArray('pic44','Img pictures/pic44.jpg');
-new imgArray('pic45', 'Img pictures/pic45.jpg');
+new imgArray('t1', 'game-cards/travel/t1.png');
+new imgArray('t2', 'game-cards/travel/t2.png');
+new imgArray('t1', 'game-cards/travel/t3.png');
+new imgArray('t1', 'game-cards/travel/t4.png');
+new imgArray('t1', 'game-cards/travel/t5.png');
+new imgArray('t1', 'game-cards/travel/t6.png');
+new imgArray('t1', 'game-cards/travel/t7.png');
+new imgArray('t1', 'game-cards/travel/t8.png');
+new imgArray('t1', 'game-cards/travel/t9.png');
+new imgArray('t1', 'game-cards/travel/t10.png');
+new imgArray('t1', 'game-cards/travel/t11.png');
+new imgArray('t1', 'game-cards/travel/t12.png');
+new imgArray('t1', 'game-cards/travel/t13.png');
+new imgArray('t1', 'game-cards/travel/t14.png');
+new imgArray('t1', 'game-cards/travel/t15.png');
+
+// new imgArray('pic31', 'Img pictures/pic31.jpg');
+// new imgArray('pic32', 'Img pictures/pic32.jpg');
+// new imgArray('pic33', 'Img pictures/pic33.jpg');
+// new imgArray('pic34', 'Img pictures/pic34.jpg');
+// new imgArray('pic35', 'Img pictures/pic35.jpg');
+// new imgArray('pic36', 'Img pictures/pic36.jpg');
+// new imgArray('pic37', 'Img pictures/pic37.jpg');
+// new imgArray('pic38', 'Img pictures/pic38.jpg');
+// new imgArray('pic39', 'Img pictures/pic39.jpg');
+// new imgArray('pic40', 'Img pictures/pic40.jpg');
+// new imgArray('pic41', 'Img pictures/pic41.jpg');
+// new imgArray('pic42', 'Img pictures/pic42.jpg');
+// new imgArray('pic43', 'Img pictures/pic43.jpg');
+// new imgArray('pic44','Img pictures/pic44.jpg');
+// new imgArray('pic45', 'Img pictures/pic45.jpg');
 
 // Random pic from (array)
 function randomImg(array) {
@@ -98,5 +114,13 @@ function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
 
   return array;
 }
+
+function clearImages() {
+  while (table.firstChild) {
+    table.removeChild(table.firstChild);
+  }
+}
+
+
 generateRay(array1);
 appendAll(newRay);
