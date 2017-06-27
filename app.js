@@ -70,6 +70,20 @@ function appendAll(theArray){
     }
     table.appendChild(trEl);
   };
+
+  function appendBacks(theArray){
+    // for (var i = 0 ; i < 3 ; i++){
+      var point = 0;
+      var trEl = document.createElement('tr');
+      for (var j = 0; j < 9; j++){
+        var imgEl = document.createElement('img');
+        imgEl.src = newRay[point].path;
+        imgEl.name = 'newRay[point].name';
+        trEl.appendChild(imgEl);
+        point++;
+      }
+      table.appendChild(trEl);
+    };
 // Removes 1 image from the first 9
 function replaceImage(array) {
   console.log(array);
@@ -98,5 +112,8 @@ function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
 
   return array;
 }
+
+
+
 generateRay(array1);
 appendAll(newRay);
