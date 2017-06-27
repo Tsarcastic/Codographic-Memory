@@ -113,7 +113,5 @@ function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
   return array;
 }
 
-
-
 generateRay(array1);
 appendAll(newRay);
