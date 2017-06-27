@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+
+table{
+  max-width: 960px;
+
+>>>>>>> 5ad7ce738a52096a0d01054eab74238fdfab9b41
 //black #000000
 //ink #062F4F
 //Posy #813772
@@ -6,8 +13,18 @@
 /*body {
   //imgslideshow
   background-image: url("https://static-ssl.businessinsider.com/image/58556363a1a45e9f018b69ea-960-720/and-here-are-the-new-mac-wallpapers.jpg");*/
+<<<<<<< HEAD
 title {
   font-size: 100px;
+=======
+
+h1 {
+  font-size: 300px;
+
+}
+/*title {
+  font-size: 100px;*/
+>>>>>>> 5ad7ce738a52096a0d01054eab74238fdfab9b41
 }
 
 
