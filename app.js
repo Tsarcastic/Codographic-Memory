@@ -28,16 +28,21 @@ new imgArray('pic43', 'Img pictures/pic43.jpg');
 new imgArray('pic44','Img pictures/pic44.jpg');
 new imgArray('pic45', 'Img pictures/pic45.jpg');
 
-// Random pic
+// Random pic from (array)
 function randomImg(array) {
   var spot = Math.floor(Math.random() * (array.length));
   return array[spot];
 }
-// Generating the array
+
+function randomImgB(array) {
+  var remove = Math.floor(Math.random() * (9));
+  return array[remove];
+}
+// Generating 9 images from (array)
 function generateRay(array) { //Function to render 9 images
   var thisPic = randomImg(array);
   newRay.push(thisPic);
-  while (newRay.length < 9) {
+  while (newRay.length < 10) {
     var thatPic = randomImg(array);
     console.log(thatPic);
     for (var i = 0; i < newRay.length; i++) {
@@ -49,12 +54,7 @@ function generateRay(array) { //Function to render 9 images
     };
   };
 };
-
-function randomImg(array) {
-  var spot = Math.floor(Math.random() * ((array).length));
-  return array[spot];
-}
-//
+// Appending 9 images from (theArray)
 function appendAll(theArray){
   // for (var i = 0 ; i < 3 ; i++){
     var point = 0;
@@ -67,9 +67,13 @@ function appendAll(theArray){
       point++;
     }
     table.appendChild(trEl);
-  }
-
-// };
-
+  };
+// Removes 1 image from the first 9
+// function replaceImage(array) {
+//   console.log(newRay);
+//   newRay.splice(randomImgB(array, 1));
+//   console.log(newRay);
+//   var rightChoice = array[9];
+// }
 generateRay(array1);
 appendAll(newRay);
