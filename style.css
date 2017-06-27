@@ -45,18 +45,18 @@ table {
 /*Css Starts*/
 
 body {
-background-image: url("Img pictures/maxresdefault.jpg");
+background-image: url("Img pictures/bg.jpg");
 background-repeat: no-repeat;
 background-size: cover;
 width: 960px;
 margin-left: auto;
 margin-right: auto;
 text-align: center;
-font-family: 'Righteous', cursive;
+font-family: 'Archivo Black', sans-serif;
 }
 
 button {
-  background-color: green;
+  background-color: black;
   opacity: .9;
   color: white;
   width: 200px;
@@ -65,29 +65,44 @@ button {
   font-size: 30px;
   margin-left: auto;
   margin-right: auto;
+	bottom: 10px;
+	margin-top: 50px;
+
 }
 button:hover{
-  background-color: red;
+  background-color: green;
 }
 header{
   padding-top: 20px;
 padding-bottom: 30px;
-  height: 100px;
-  opacity: .7;
+  height: 150px;
+  opacity: .9;
 }
+
+h3{
+	font-size: 30px;
+
+}
+
+.container {
+	opacity: .7;
+}
+
 h2{
-  font-size: 86px;
+	background-color: black;
+	width: 100%;
+  font-size: 70px;
   color: white;
 }
 h1:hover{
-  background-color: red;
+  background-color: black;
   opacity: .6;
 }
 
 h1{
   font-size: 80px;
   color:White;
-  background-color: rgba(204, 220,200, 0.6);black;
+  /*background-color: rgba(204, 220,200, 0.6);black;*/
 }
 img{
   padding:25px;
