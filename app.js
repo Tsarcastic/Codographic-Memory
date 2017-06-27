@@ -93,7 +93,9 @@ function appendAll(theArray){
       }
       table.appendChild(trEl);
     };
+
 // Removes 1 image from the first 9 generated
+
 function replaceImage(array) {
   console.log(array);
   newRay.splice(randomImgB(array), 1);
@@ -122,7 +124,6 @@ function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
   return array;
 }
 
-
-
 generateRay(array1); //Make that array
 appendAll(newRay); //Append the hell out of it
+
