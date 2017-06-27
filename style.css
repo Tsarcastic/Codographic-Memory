@@ -1,64 +1,95 @@
 
-table{
-  max-width: 960px;
-
-//black #000000
-//ink #062F4F
-//Posy #813772
-//Embers #B82601
-
-/*body {
-  //imgslideshow
-  background-image: url("https://static-ssl.businessinsider.com/image/58556363a1a45e9f018b69ea-960-720/and-here-are-the-new-mac-wallpapers.jpg");*/
-
-h1 {
-  font-size: 300px;
-
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-/*title {
-  font-size: 100px;*/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
-
-
-button {
-  background-color: #000000;
-  color: #FFFFFF;
-  padding: 1em;
-  /*margin-top: 500px 500px;*/
-  position:absolute;
-  bottom:0;
-  margin:auto;
-  display:block;
+body {
+	line-height: 1;
 }
-
-#banner {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 200px;
-  z-index: -1;
+ol, ul {
+	list-style: none;
 }
-
-html {
-  font-family: 'Archivo Black', sans-serif;
-  background: url("https://static-ssl.businessinsider.com/image/58556363a1a45e9f018b69ea-960-720/and-here-are-the-new-mac-wallpapers.jpg") no-repeat center center fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 0 auto;
-  width: 960px;
-  margin: 0 auto;
-
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.sub-banners {
-  display: inline-block;
-  margin: 30px 30px 0px 0px;
-  opacity: 0.5;
-
-}
+/*Css Starts*/
 
 body {
-  color: #FFFFFF;
+background-image: url("Img pictures/maxresdefault.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+width: 960px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+font-family: 'Righteous', cursive;
+}
+
+button {
+  background-color: green;
+  opacity: .9;
+  color: white;
+  width: 200px;
+  height: 50px;
+  display:block;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+button:hover{
+  background-color: red;
+}
+header{
+  padding-top: 20px;
+padding-bottom: 30px;
+  height: 100px;
+  opacity: .7;
+}
+h2{
+  font-size: 86px;
+  color: white;
+}
+h1:hover{
+  background-color: red;
+  opacity: .6;
+}
+
+h1{
+  font-size: 80px;
+  color:White;
+  background-color: rgba(204, 220,200, 0.6);black;
+}
+img{
+  padding:25px;
 }
