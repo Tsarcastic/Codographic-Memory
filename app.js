@@ -8,6 +8,8 @@ var arrayR3 = []; //Images for third round
 var arrayR4 = []; //Images for fourth round
 var newRay = []; //The current array
 var rightChoice = 0; //The correct choice for the game
+var timesClicked = 0;
+var round = 1
 var cardBack = 'game-cards/bg.png';
 var score = 0;
 
@@ -133,7 +135,7 @@ function generateRay(array) { //Function to render 9 images
   rightChoice = newRay[9];
 };
 // Appending 9 images from (theArray)
-function appendAll(theArray){
+function renderPics(theArray){
   var point = 0;
   var trEl = document.createElement('tr');
   for (var j = 0; j < 9; j++){
@@ -146,8 +148,8 @@ function appendAll(theArray){
   }
   table.appendChild(trEl);
 };
-
-function renderBacks(theArray){
+//Renders the card backs
+function renderBacks(){
   var point = 0;
   var trEl = document.createElement('tr');
   for (var j = 0; j < 9; j++){
@@ -157,21 +159,16 @@ function renderBacks(theArray){
   }
   table.appendChild(trEl);
 };
-
-
-
-// Removes 1 image from the first 9 generated
-
+// Removes 1 image from the first 9 generated & runs RenderPics
 function replaceImage() {
   // console.log(array);
   newRay.splice(randomImgB(newRay), 1);
   var rightChoice = newRay[9];
   shuffle(newRay);
-  appendAll(newRay);
-  console.log('testtest');
+  renderPics(newRay);
 }
-
-function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
+//Knuth shuffle - thanks Fisher-Yates!
+function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -189,7 +186,6 @@ function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
 
   return array;
 }
-
 //wipes the existing images from the screen
 function clearImages() {
   table.innerHTML = ' ';
@@ -199,28 +195,40 @@ function whereClick(event) {
   var target = event.target;
   console.log('That\'s a click');
   if (target.name === rightChoice.name) {
-    alert('Congratulations! You got it!')
+    alert('Congratulations! You got it!');
+    round++;
+    newRay = [];
+    if (round === 2) {
+      alert('Round 2 coming soon. Refresh to try again.')
+      clearImages();
+      // generateRay(arrayR2);
+      // renderBacks();
+      // document.getElementById('pinhere').removeEventListener('click', whereClick);
+      // document.getElementById('start').addEventListener('click', startGame);
+    }
   }  else {
     alert('Sorry, that was already there.')
     window.location.href = "page3.html"
-    }
+  }
 }
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
-function handleClick(event) {
-  event.preventDefault();
-  clearImages();
-  renderBacks();
-  setTimeout(clearImages, 2000);
-  // clearImages();
-  setTimeout(replaceImage,2100);
-  // appendAll(newRay);
-  // setTimeout(clearImages, 5000);
-  table.removeEventListener('click', handleClick);
-  document.getElementById('pinhere').addEventListener('click', whereClick);
-}
+function startGame(event) {
+  if (round === 1) {event.preventDefault();
+    clearImages();
+    renderPics();
+    setTimeout(clearImages, 8000);
+    setTimeout(renderBacks, 8050);
+    setTimeout(clearImages, 10000);
+    // clearImages();
+    setTimeout(replaceImage,10050);
+    // renderPics(newRay);
+    // setTimeout(clearImages, 5000);
+    table.removeEventListener('click', startGame);
+    document.getElementById('pinhere').addEventListener('click', whereClick);
+  }}
 
-generateRay(arrayR1); //Make that array
-appendAll(newRay); //Append the hell out of it
+  generateRay(arrayR2); //Make that array
+  renderBacks(); //Append the hell out of it
 
-table.addEventListener('click', handleClick);
+  document.getElementById('start').addEventListener('click', startGame);
