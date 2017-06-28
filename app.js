@@ -133,7 +133,7 @@ function generateRay(array) { //Function to render 9 images
   rightChoice = newRay[9];
 };
 // Appending 9 images from (theArray)
-function appendAll(theArray){
+function renderPics(theArray){
   var point = 0;
   var trEl = document.createElement('tr');
   for (var j = 0; j < 9; j++){
@@ -147,7 +147,7 @@ function appendAll(theArray){
   table.appendChild(trEl);
 };
 
-function renderBacks(theArray){
+function renderBacks(){
   var point = 0;
   var trEl = document.createElement('tr');
   for (var j = 0; j < 9; j++){
@@ -167,7 +167,7 @@ function replaceImage() {
   newRay.splice(randomImgB(newRay), 1);
   var rightChoice = newRay[9];
   shuffle(newRay);
-  appendAll(newRay);
+  renderPics(newRay);
   console.log('testtest');
 }
 
@@ -207,20 +207,22 @@ function whereClick(event) {
 }
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
-function handleClick(event) {
+function startGame(event) {
   event.preventDefault();
   clearImages();
-  renderBacks();
-  setTimeout(clearImages, 2000);
+  renderPics();
+  setTimeout(clearImages, 8000);
+  setTimeout(renderBacks, 8050);
+  setTimeout(clearImages, 10000);
   // clearImages();
-  setTimeout(replaceImage,2100);
-  // appendAll(newRay);
+  setTimeout(replaceImage,10050);
+  // renderPics(newRay);
   // setTimeout(clearImages, 5000);
-  table.removeEventListener('click', handleClick);
+  table.removeEventListener('click', startGame);
   document.getElementById('pinhere').addEventListener('click', whereClick);
 }
 
 generateRay(arrayR1); //Make that array
-appendAll(newRay); //Append the hell out of it
+renderBacks(); //Append the hell out of it
 
-table.addEventListener('click', handleClick);
+document.getElementById('start').addEventListener('click', startGame);
