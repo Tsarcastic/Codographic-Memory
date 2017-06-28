@@ -1,6 +1,5 @@
 'use strict';
 var table = document.getElementById('pinhere'); //Where we will be appending/interacting with.
-var divvy = document.getElementById('clicky'); //Maybe this is gone?
 var allArrays = []; //This is ALL our arrays
 var arrayR1 = [];  //Images for first round
 var arrayR2 = []; //Images for second round
@@ -188,7 +187,7 @@ function clearImages() {
   table.innerHTML = ' ';
 }
 //Determines if a click is correct or not
-function whereClick(event) {
+function winLose(event) {
   event.preventDefault();
   var target = event.target;
   if (target.name === rightChoice.name) {
@@ -199,7 +198,7 @@ function whereClick(event) {
       alert('Round 2!');
       generateRay(arrayR1);
       renderBacks();
-      document.getElementById('pinhere').removeEventListener('click', whereClick);
+      document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     }
   }  else {
@@ -210,14 +209,18 @@ function whereClick(event) {
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
-  if (round === 1) {
+
     event.preventDefault();
     renderPics();
     setTimeout(renderBacks, 8000);
     setTimeout(replaceImage,10000);
     table.removeEventListener('click', startGame);
-    document.getElementById('pinhere').addEventListener('click', whereClick);
-  }}
+    document.getElementById('pinhere').addEventListener('click', winLose);
+  };
+
+  // function round2 {
+  //   generateRay
+  // }
 
   generateRay(arrayR2); //Make that array
   renderBacks(); //Append the hell out of it
