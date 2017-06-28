@@ -205,7 +205,9 @@ function winLose(event) {
     alert('Sorry, that was already there.')
     window.location.href = "page3.html"
   }
-}
+};
+
+
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
@@ -217,10 +219,6 @@ function startGame(event) {
     table.removeEventListener('click', startGame);
     document.getElementById('pinhere').addEventListener('click', winLose);
   };
-
-  // function round2 {
-  //   generateRay
-  // }
 
   generateRay(arrayR2); //Make that array
   renderBacks(); //Append the hell out of it
