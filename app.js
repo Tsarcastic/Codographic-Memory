@@ -195,16 +195,29 @@ function clearImages() {
 //   appendAll(newRay);
 // }
 
-document.getElementById('pinhere').addEventListener('click', handleClick);
+
 
 function handleClick(event) {
   event.preventDefault();
   clearImages();
   renderBacks();
-  setTimeout(clearImages, 5000);
-  // replaceImage(newRay);
+  clearImages();
+  replaceImage(newRay);
+  // appendAll(newRay);
+  // setTimeout(clearImages, 5000);
   // appendAll(newRay);
 
 }
+
+function whereCLick(event) {
+  var target = event.target;
+  console.log('That\'s a click');
+  if (target.name === newRay[0].name) {
+    console.log('Yeah yeah')
+  }
+}
+
 generateRay(arrayR3); //Make that array
 appendAll(newRay); //Append the hell out of it
+
+document.getElementById('pinhere').addEventListener('click', whereCLick);
