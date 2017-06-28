@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+css ```html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -11,39 +11,41 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-
+#scoreTable {
+    padding-top: 500px;
+    background-color: black;
+}
 /*Css Starts*/
-
 body {
 background-image: url("Img pictures/bg.jpg");
 background-repeat: no-repeat;
@@ -52,10 +54,8 @@ width: 960px;
 margin-left: auto;
 margin-right: auto;
 text-align: center;
-font-family: 'Archivo Black', sans-serif;
 }
-
-button {
+#play {
   background-color: black;
   opacity: .9;
   color: white;
@@ -65,45 +65,154 @@ button {
   font-size: 30px;
   margin-left: auto;
   margin-right: auto;
-	bottom: 10px;
-	margin-top: 50px;
-
+    bottom: 10px;
+    margin-top: 50px;
+    font-family: 'Orbitron', sans-serif;
 }
-button:hover{
-  background-color: green;
+#play:hover {
+    background-color: green;
 }
 header{
-  padding-top: 20px;
-padding-bottom: 30px;
+  padding-top: 40px;
+padding-bottom: 10px;
   height: 50px;
   opacity: .9;
 }
-
 h3{
-	font-size: 20px;
-
+    font-size: 40px;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    padding-top: 1em;
 }
-
 .container {
-	opacity: .7;
+    opacity: .7;
 }
-
+h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 50px;
+  color: white;
+    padding: 40px 0;
+}
 h2{
-	background-color: black;
-	width: 100%;
+    background-color: black;
+    width: 100%;
   font-size: 40px;
   color: white;
+    font-family: 'Orbitron', sans-serif;
 }
-h1:hover{
+/*h1:hover{
   background-color: black;
   opacity: .6;
 }
-
-h1{
+/*h1{
   font-size: 80px;
   color:White;
   /*background-color: rgba(204, 220,200, 0.6);black;*/
-}
+/*}*/
 img{
   padding:25px;
 }
+ a {
+     color: white;
+     text-decoration: none;
+ }
+.button {
+    display: inline-block;
+    position: relative;
+    margin: .5em;
+    padding-bottom: : 0.10em;
+    border: none;
+    overflow: hidden;
+    text-decoration: none;
+    font-size: 3em;
+    outline: none;
+    color: #FFF;
+    background: transparent;
+    font-family: 'Days One', sans-serif;
+        width: 600px;
+        height: 90px;
+}
+.button span {
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+.button:before,
+.button:after {
+    content: '';
+    position: absolute;
+    top: 0.67em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: .4s,opacity .6s;
+    -moz-transition: .4s,opacity .6s;
+    -o-transition: .4s,opacity .6s;
+    transition: .4s,opacity .6s;
+}
+/* :before */
+.button:before {
+    content: attr(data-hover);
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+}
+/* :after */
+.button:after {
+    content: attr(data-active);
+    -webkit-transform: translate(150%,0);
+    -moz-transform: translate(150%,0);
+    -ms-transform: translate(150%,0);
+    -o-transform: translate(150%,0);
+    transform: translate(150%,0);
+}
+/* Span on :hover and :active */
+.button:hover span,
+.button:active span {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3);
+}
+/*
+    We show :before pseudo-element on :hover
+    and :after pseudo-element on :active
+*/
+.button:hover:before,
+.button:active:after {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    -o-transition-delay: .4s;
+    transition-delay: .4s;
+}
+/*
+  We hide :before pseudo-element on :active
+*/
+.button:active:before {
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+```
