@@ -219,8 +219,6 @@ function winLose(event) {
     window.location.href = "page3.html"
   }
 };
-
-
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
