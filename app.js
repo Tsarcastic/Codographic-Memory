@@ -8,7 +8,8 @@ var arrayR3 = [];
 var arrayR4 = [];
 var newRay = []; //The current array
 var rightChoice = 0; //The correct choice for the game
-var cardBack = 'game-cards/bg.png'
+var cardBack = 'game-cards/bg.png';
+var score = 0;
 allArrays.push(arrayR1);
 
 function imgR1(name, path) {//This is our constructor function
@@ -128,11 +129,13 @@ function generateRay(array) { //Function to render 9 images
 };
 // Appending 9 images from (theArray)
 function appendAll(theArray){
+  console.log('appendAll has started')
   var point = 0;
   var trEl = document.createElement('tr');
   for (var j = 0; j < 9; j++){
     var imgEl = document.createElement('img');
     imgEl.src = newRay[point].path;
+    console.log('image' + imgEl.src);
     imgEl.name = newRay[point].name;
     trEl.appendChild(imgEl);
     point++;
@@ -156,12 +159,12 @@ function renderBacks(theArray){
 // Removes 1 image from the first 9 generated
 
 function replaceImage(array) {
-  console.log(array);
+  // console.log(array);
   newRay.splice(randomImgB(array), 1);
-  console.log(array);
   var rightChoice = array[9];
   shuffle(array);
   appendAll(array);
+  console.log('testtest');
 }
 
 function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
@@ -185,9 +188,7 @@ function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
 
 //wipes the existing images from the screen
 function clearImages() {
-  while (table.firstChild) {
-    table.removeChild(table.firstChild);
-  }
+    table.innerHTML = ' ';
 }
 
 // function firstClick() {
@@ -195,19 +196,26 @@ function clearImages() {
 //   clearImages();
 //   appendAll(newRay);
 // }
-
+//When the table is clicked this checks to see if the right choice was clicked.
 function whereClick(event) {
   var target = event.target;
   console.log('That\'s a click');
   if (target.name === rightChoice.name) {
     console.log('YAY!')
+    //Code that will move them forward to the next set of images.
+    // else {
+    //   alert('Sorry, that was not the right picture')
+    //   //Code that will send them to the third page.
+    // }
   }
 }
-
+//For the first part of the game - Switches to card backs, then the shuffled set. Removes
+//itself as an event listener & adds the listener for right/wrong choice.
 function handleClick(event) {
   event.preventDefault();
   clearImages();
   renderBacks();
+  // setTimeout(clearImages, 2000);
   clearImages();
   replaceImage(newRay);
   // appendAll(newRay);
