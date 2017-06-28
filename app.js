@@ -124,6 +124,7 @@ function generateRay(array) { //Function to render 9 images
       continue;
     };
   };
+  rightChoice = newRay[9];
 };
 // Appending 9 images from (theArray)
 function appendAll(theArray){
@@ -160,7 +161,7 @@ function replaceImage(array) {
   console.log(array);
   var rightChoice = array[9];
   shuffle(array);
-  appendAll(newRay);
+  appendAll(array);
 }
 
 function shuffle(array) { //Knuth shuffle - thanks Fisher-Yates!
@@ -195,7 +196,13 @@ function clearImages() {
 //   appendAll(newRay);
 // }
 
-
+function whereClick(event) {
+  var target = event.target;
+  console.log('That\'s a click');
+  if (target.name === rightChoice.name) {
+    console.log('YAY!')
+  }
+}
 
 function handleClick(event) {
   event.preventDefault();
@@ -206,18 +213,12 @@ function handleClick(event) {
   // appendAll(newRay);
   // setTimeout(clearImages, 5000);
   // appendAll(newRay);
-
-}
-
-function whereCLick(event) {
-  var target = event.target;
-  console.log('That\'s a click');
-  if (target.name === newRay[0].name) {
-    console.log('Yeah yeah')
-  }
+  table.removeEventListener('click', handleClick);
+  document.getElementById('pinhere').addEventListener('click', whereClick);
+  appendAll();
 }
 
 generateRay(arrayR3); //Make that array
 appendAll(newRay); //Append the hell out of it
 
-document.getElementById('pinhere').addEventListener('click', whereCLick);
+table.addEventListener('click', handleClick);
