@@ -199,12 +199,12 @@ function whereClick(event) {
     round++;
     newRay = [];
     if (round === 2) {
-      alert('Round two!');
+      alert('Round 2 coming soon. Refresh to try again.')
       clearImages();
-      generateRay(arrayR2);
-      renderBacks();
-      document.getElementById('pinhere').removeEventListener('click', whereClick);
-      document.getElementById('start').addEventListener('click', startGame);
+      // generateRay(arrayR2);
+      // renderBacks();
+      // document.getElementById('pinhere').removeEventListener('click', whereClick);
+      // document.getElementById('start').addEventListener('click', startGame);
     }
   }  else {
     alert('Sorry, that was already there.')
@@ -228,7 +228,7 @@ function startGame(event) {
     document.getElementById('pinhere').addEventListener('click', whereClick);
   }}
 
-  generateRay(arrayR1); //Make that array
+  generateRay(arrayR2); //Make that array
   renderBacks(); //Append the hell out of it
 
   document.getElementById('start').addEventListener('click', startGame);
