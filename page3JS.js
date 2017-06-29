@@ -8,10 +8,8 @@ function pullThing() {
   console.log(retrievedThing);
   var parsedThing = JSON.parse(retrievedThing);
   console.log(parsedThing);
-  for (var i = 0; i < parsedThing.length; i ++) {
-    Items.all[i] = parsedThing[i];
+  users.push(parsedThing);
   }
-}p
 
 function User(name, score) {
   this.name = name;
@@ -44,13 +42,13 @@ new User('Brendan', 1);
 new User('Pizza', 16);
 new User('Donuts', 10);
 
-// users.sort(compare);
+users.sort(compare);
 renderTable();
 
-// function compare(a,b) {
-//   if (a.score > b.score)
-//     return -1;
-//   if (a.score < b.score)
-//     return 1;
-//   return 0;
-// }
+function compare(a,b) {
+  if (a.score < b.score)
+    return -1;
+  if (a.score > b.score)
+    return 1;
+  return 0;
+}
