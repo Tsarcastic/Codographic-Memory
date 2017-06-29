@@ -188,6 +188,10 @@ function shuffle(array) {
 }
 //wipes the existing images from the screen
 
+function clearImages() {
+  table.innerHTML = ' ';
+}
+//Determines if a click is correct or not
 function winLose(event) {
   event.preventDefault();
   var target = event.target;
@@ -213,16 +217,17 @@ function winLose(event) {
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
+
     }
   }  else {
     alert('Sorry, that was already there.')
     window.location.href = "page3.html"
   }
 };
+
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
-
   event.preventDefault();
   renderPics();
   setTimeout(renderBacks, 8000);
