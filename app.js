@@ -16,7 +16,7 @@ var value = 0;
 var gameStop = 0;
 
 function ImgR1(name, path) {//This is our constructor function
-  
+
   this.name = name;
   this.path = path;
   arrayR1.push(this);
@@ -199,22 +199,6 @@ function shuffle(array) {
 function clearImages() {
   table.innerHTML = ' ';
 }
-//Pulls things from localStorage & puts them in items.all
-function pullThing() {
-  var retrievedThing = localStorage.things; //Pulls unparsed info from LS
-  console.log(retrievedThing);
-  var parsedThing = JSON.parse(retrievedThing);//Parses retrievedThing
-  console.log(parsedThing.name);
-  users.push(parsedThing).name;
-  console.log(users[0])
-  }
-//Pushes [otherThing] into localStorage
-function pushThing(otherThing) {
-  users[0].score = gameStop
-  localStorage.clear();
-  var otherThingJSON = JSON.stringify(otherThing);
-  localStorage.things = otherThingJSON;
-}
 //Determines if they clicked the right image, and what happens (includes info for different rounds)
 function winLose(event) {
   event.preventDefault();
@@ -255,6 +239,7 @@ function winLose(event) {
     });
     stop();
     setTimeout ( function(){  window.location.href = "page3.html";},500);
+    pushThing();
   }
 };
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
@@ -268,10 +253,28 @@ function startGame(event) {
   table.removeEventListener('click', startGame);
   document.getElementById('pinhere').addEventListener('click', winLose);
 };
-
+//Timer for score
 function gameTimer() {
   document.getElementById('demo').innerHTML = ++value;
 }
+//Pulls things from localStorage & puts them in items.all
+function pullThing() {
+  var retrievedThing = localStorage.things; //Pulls unparsed info from LS
+  console.log(retrievedThing);
+  var parsedThing = JSON.parse(retrievedThing);//Parses retrievedThing
+  console.log(parsedThing.name);
+  users.push(parsedThing).name;
+  console.log(users[0])
+  }
+//Pushes the user's score into localStorage
+function pushThing() {
+  console.log(users[0])
+  localStorage.clear();
+  var otherThingJSON = JSON.stringify(users[0]);
+  localStorage.things = otherThingJSON;
+}
+
+
 var timerInterval = null;
 function start () {
   stop();
@@ -281,8 +284,11 @@ function start () {
 var stop = function() {
   var gameStop =  document.getElementById('demo').textContent;
   console.log(gameStop);
+  users[0].score = gameStop;
   clearInterval(timerInterval );
 };
+
+pullThing();
 generateRay(arrayR2); //Make that array
 renderBacks(); //Append the hell out of it
 
