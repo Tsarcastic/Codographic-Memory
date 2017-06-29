@@ -239,7 +239,6 @@ function winLose(event) {
     });
     stop();
     setTimeout ( function(){  window.location.href = "page3.html";},500);
-    pushThing();
   }
 };
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
@@ -268,7 +267,6 @@ function pullThing() {
   }
 //Pushes the user's score into localStorage
 function pushThing() {
-  console.log(users[0])
   localStorage.clear();
   var otherThingJSON = JSON.stringify(users[0]);
   localStorage.things = otherThingJSON;
@@ -284,7 +282,12 @@ function start () {
 var stop = function() {
   var gameStop =  document.getElementById('demo').textContent;
   console.log(gameStop);
-  users[0].score = gameStop;
+  if (round < 5) {
+    users[0].score = 999;
+    pushThing();
+  } else {
+
+  }
   clearInterval(timerInterval );
 };
 
