@@ -4,7 +4,7 @@ var data = [];
 var rData = ' ';
 var theForm = document.getElementById('theForm');
 
-function User(name, age) {
+function User(name) {
   this.name = name;
   this.score = 0;
   data.push(this);
@@ -24,6 +24,7 @@ function readData(event) {
   console.log(newUser);
   window.location.href = "page2.html"
 }
+
 
 
 

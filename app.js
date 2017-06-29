@@ -5,15 +5,18 @@ var arrayR1 = [];  //Images for first round
 var arrayR2 = []; //Images for second round
 var arrayR3 = []; //Images for third round
 var arrayR4 = []; //Images for fourth round
-var newRay = []; //The current array
+var newRay = []; //The array used in the functions - changed depending on round & phase
+var users = [] //To keep track of our user
 var rightChoice = 0; //The correct choice for the game
 var timesClicked = 0;
 var round = 1;
 var cardBack = 'game-cards/bg.png';
 var score = 0;
-
+var value = 0;
+var gameStop = 0;
 
 function ImgR1(name, path) {//This is our constructor function
+
   this.name = name;
   this.path = path;
   arrayR1.push(this);
@@ -37,6 +40,12 @@ function ImgR4(name, path) {
   this.path = path;
   arrayR4.push(this);
 };
+
+function User(name, age) {
+  this.name = name;
+  this.score = 0;
+  data.push(this);
+}
 
 allArrays.push(arrayR1);
 allArrays.push(arrayR2);
@@ -110,13 +119,13 @@ function randomImg(array) {
   var spot = Math.floor(Math.random() * (array.length));
   return array[spot];
 }
-
+//Generates a number corresponding to one of the first nine images.
 function randomImgB(array) {
   var remove = Math.floor(Math.random() * (9));
   return remove;
 }
-// Generating 9 images from (array)
-function generateRay(array) { //Function to render 9 images
+// Generating 9 images in newRay from one of our image arrays
+function generateRay(array) {
   var thisPic = randomImg(array);
   newRay.push(thisPic);
   while (newRay.length < 10) {
@@ -134,7 +143,7 @@ function generateRay(array) { //Function to render 9 images
 function clearImages() {
   table.innerHTML = ' ';
 }
-
+// Renders newRay to our second page
 function renderPics(theArray){
   var point = 0;
   clearImages();
@@ -159,7 +168,7 @@ function renderBacks(){
   }
   table.appendChild(trEl);
 };
-// Runs renderPics after it removes 1 image from the first 9 generated
+// Removes 1 image from the first 9 generated then renders 9 images (including the rightChoice)
 function replaceImage() {
   // console.log(array);
   newRay.splice(randomImgB(newRay), 1);
@@ -187,11 +196,10 @@ function shuffle(array) {
   return array;
 }
 //wipes the existing images from the screen
-
 function clearImages() {
   table.innerHTML = ' ';
 }
-
+//Determines if they clicked the right image, and what happens (includes info for different rounds)
 function winLose(event) {
   event.preventDefault();
   var target = event.target;
@@ -214,12 +222,13 @@ function winLose(event) {
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 4) {
-      swal('Great Job Now Round 4 !');
+      swal('Thank you, but the princess is in another castle!');
       setTimeout ( function(){generateRay(arrayR4);},5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
-
+    } else if (round === 5) {
+      swal('CONGRATULATIONS! YOU WIN!')
     }
   } else {
     swal({
@@ -228,21 +237,61 @@ function winLose(event) {
       timer: 1000,
       showConfirmButton: false
     });
+    stop();
     setTimeout ( function(){  window.location.href = "page3.html";},500);
   }
 };
-
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
   event.preventDefault();
   renderPics();
+  start();
   setTimeout(renderBacks, 7000);
   setTimeout(replaceImage,9000);
   table.removeEventListener('click', startGame);
   document.getElementById('pinhere').addEventListener('click', winLose);
 };
+//Timer for score
+function gameTimer() {
+  document.getElementById('demo').innerHTML = ++value;
+}
+//Pulls things from localStorage & puts them in items.all
+function pullThing() {
+  var retrievedThing = localStorage.things; //Pulls unparsed info from LS
+  console.log(retrievedThing);
+  var parsedThing = JSON.parse(retrievedThing);//Parses retrievedThing
+  console.log(parsedThing.name);
+  users.push(parsedThing).name;
+  console.log(users[0])
+  }
+//Pushes the user's score into localStorage
+function pushThing() {
+  localStorage.clear();
+  var otherThingJSON = JSON.stringify(users[0]);
+  localStorage.things = otherThingJSON;
+}
 
+
+var timerInterval = null;
+function start () {
+  stop();
+  value = 0;
+  timerInterval = setInterval(gameTimer, 1000);
+}
+var stop = function() {
+  var gameStop =  document.getElementById('demo').textContent;
+  console.log(gameStop);
+  if (round < 5) {
+    users[0].score = 999;
+    pushThing();
+  } else {
+
+  }
+  clearInterval(timerInterval );
+};
+
+pullThing();
 generateRay(arrayR2); //Make that array
 renderBacks(); //Append the hell out of it
 
