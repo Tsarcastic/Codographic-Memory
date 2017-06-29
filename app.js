@@ -131,6 +131,10 @@ function generateRay(array) { //Function to render 9 images
   rightChoice = newRay[9];
 };
 // Appending 9 images from (theArray)
+function clearImages() {
+  table.innerHTML = ' ';
+}
+
 function renderPics(theArray){
   var point = 0;
   clearImages();
@@ -183,6 +187,7 @@ function shuffle(array) {
   return array;
 }
 //wipes the existing images from the screen
+
 function clearImages() {
   table.innerHTML = ' ';
 }
@@ -200,6 +205,19 @@ function winLose(event) {
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
+    } else if (round ===3) {
+      alert('Round 3! Bowie alert');
+      generateRay(arrayR3);
+      renderBacks();
+      document.getElementById('pinhere').removeEventListener('click', winLose);
+      document.getElementById('start').addEventListener('click', startGame);
+    } else if (round === 4) {
+      alert('Round 4!');
+      generateRay(arrayR4);
+      renderBacks();
+      document.getElementById('pinhere').removeEventListener('click', winLose);
+      document.getElementById('start').addEventListener('click', startGame);
+
     }
   }  else {
     alert('Sorry, that was already there.')
@@ -207,20 +225,18 @@ function winLose(event) {
   }
 };
 
-
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
+  event.preventDefault();
+  renderPics();
+  setTimeout(renderBacks, 8000);
+  setTimeout(replaceImage,10000);
+  table.removeEventListener('click', startGame);
+  document.getElementById('pinhere').addEventListener('click', winLose);
+};
 
-    event.preventDefault();
-    renderPics();
-    setTimeout(renderBacks, 8000);
-    setTimeout(replaceImage,10000);
-    table.removeEventListener('click', startGame);
-    document.getElementById('pinhere').addEventListener('click', winLose);
-  };
+generateRay(arrayR2); //Make that array
+renderBacks(); //Append the hell out of it
 
-  generateRay(arrayR2); //Make that array
-  renderBacks(); //Append the hell out of it
-
-  document.getElementById('start').addEventListener('click', startGame);
+document.getElementById('start').addEventListener('click', startGame);

@@ -16,12 +16,22 @@
   <button class="button" type="button" data-hover="Pick the DIFFERENT card" data-active="I'M ACTIVE"><span>PICK</span></button>
   <h3>User Info</h3>
   <div class="container">
-    <input size ="type="text" placeholder="Enter Name" name="uname" required>
-    <input type="text" placeholder="Enter Age" name="uname" required>
+    <form id="theForm">
+      <fieldset>
 
-    <!-- <h3><button type="submit">PLAY</button></h3> -->
-    <button id="play"><a href="page2.html">P L A Y</a></button>
-    <script src="app.js"></script>
+      <label for="name">name</label>
+      <input name="name" type="text">
+
+      <label for="age">age</label>
+      <input name="age" type="number">
+
+      <button type="submit" id="test">TEST</a></button>
+      <!-- <h3><button type="submit">PLAY</button></h3> -->
+      <button id="play"><a href="page2.html">P L A Y</a></button>
+    </fieldset>
+  </form>
+</div>
+<script src="page1JS.js"></script>
 </body>
 
 </html>
