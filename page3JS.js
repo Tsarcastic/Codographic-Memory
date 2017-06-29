@@ -1,5 +1,6 @@
 'use strict';
 var userStats = {};
+var name = [];
 
 function pullThing() {
   var retrievedThing = localStorage.things;
@@ -12,3 +13,18 @@ function pullThing() {
 }
 
 pullThing();
+
+function makeHeaderRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Locations';
+  trEl.appendChild(thEl);
+//ASSIG
+  for (var i = 0; i < name.length; i++) {
+    thEl = document.createElement('th');
+    thEl.textContent = name[i];
+    trEl.appendChild(thEl);
+  }
+}
+
+makeHeaderRow();
