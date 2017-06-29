@@ -218,3 +218,43 @@ img{
   font-size: 30px;
 
 }
+
+#profile {
+  display: block;
+  column-count: 2;
+  width: 450px;
+  background-position: 0 auto;
+  text-decoration: none;
+}
+
+p{
+  color: white;
+}
+#ebio {
+  position: absolute;
+  width: 300px;
+  padding-left: 700px;
+  margin-top: -220px;
+  text-align: left;
+}
+#bbio {
+  position: absolute;
+  width: 300px;
+  padding-right: 450px;
+  margin-top: -500px;
+  text-align: right;
+}
+#cbio {
+  position: absolute;
+  width: 300px;
+  padding-right: 700px;
+  margin-top: -210px;
+  text-align: right;
+}
+#chbio {
+  position: absolute;
+  width: 300px;
+  padding-left: 700px;
+  margin-top: -480px;
+  text-align: left;
+}
