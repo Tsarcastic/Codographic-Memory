@@ -9,7 +9,7 @@ var arrayR4 = []; //Images for fourth round
 var newRay = []; //The current array
 var rightChoice = 0; //The correct choice for the game
 var timesClicked = 0;
-var round = 1
+var round = 1;
 var cardBack = 'game-cards/bg.png';
 var score = 0;
 
@@ -191,6 +191,8 @@ function clearImages() {
   table.innerHTML = ' ';
 }
 
+
+
 function whereClick(event) {
   var target = event.target;
   console.log('That\'s a click');
@@ -232,3 +234,4 @@ function startGame(event) {
   renderBacks(); //Append the hell out of it
 
   document.getElementById('start').addEventListener('click', startGame);
+  document.getElementById('gamepage').addEventListener('click', storeClick);
