@@ -8,10 +8,8 @@ function pullThing() {
   console.log(retrievedThing);
   var parsedThing = JSON.parse(retrievedThing);
   console.log(parsedThing);
-  for (var i = 0; i < parsedThing.length; i ++) {
-    Items.all[i] = parsedThing[i];
+  users.push(parsedThing);
   }
-}p
 
 function User(name, score) {
   this.name = name;
@@ -37,20 +35,20 @@ function renderTable(){ //Appending the users array to the page
   };
 };
 
-new User('Esther', 11);
-new User('Cam', 12);
-new User('Chai', 9);
-new User('Brendan', 1);
-new User('Pizza', 16);
-new User('Donuts', 10);
+new User('Esther', 50);
+new User('Cam', 65);
+new User('Chai', 53);
+new User('Brendan', 80 );
+new User('USA', 46);
+new User('xxxdontDoDrugs', 110);
 
-// users.sort(compare);
+users.sort(compare);
 renderTable();
 
-// function compare(a,b) {
-//   if (a.score > b.score)
-//     return -1;
-//   if (a.score < b.score)
-//     return 1;
-//   return 0;
-// }
+function compare(a,b) {
+  if (a.score < b.score)
+    return -1;
+  if (a.score > b.score)
+    return 1;
+  return 0;
+}
