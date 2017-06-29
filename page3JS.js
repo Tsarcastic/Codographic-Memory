@@ -1,5 +1,6 @@
 'use strict';
 var userStats = {};
+
 var table = document.getElementById('scoreTable');
 var users = []
 
@@ -18,6 +19,7 @@ function User(name, score) {
 }
 
 pullThing();
+
 
 function renderTable(){ //Appending the users array to the page
   // var thEl = document.createElement('th');
@@ -52,3 +54,4 @@ function compare(a,b) {
     return 1;
   return 0;
 }
+
