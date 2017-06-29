@@ -29,5 +29,6 @@ function readData(event) {
 
 
 
+
 document.getElementById('theForm').addEventListener('submit', readData);
 document.getElementById('test').addEventListener('click', readData);
