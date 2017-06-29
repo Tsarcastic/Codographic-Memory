@@ -1,40 +1,36 @@
 'use strict';
-var users = [];
+var userStats = {};
+var table = document.getElementById('scoreTable')
 
 function pullThing() {
   var retrievedThing = localStorage.things;
   console.log(retrievedThing);
   var parsedThing = JSON.parse(retrievedThing);
   console.log(parsedThing);
-  return parsedThing;
+  for (var i = 0; i < parsedThing.length; i ++) {
+    Items.all[i] = parsedThing[i];
   }
-
-function User(name, score) {
-
-  this.name = name;
-  this.gameStop = score;
-  data.push(this);
-  localStorage.setItem('score');
 }
 
-users.push(pullThing());
+function User(name, score) {
+  this.name = name;
+  this.score = score;
+  users.push(this);
+}
 
+pullThing();
 
-function header(){
-  console.log('header');
-  var tableRow = document.createElement('tr');
-  var tableHead = document.createElement('th');
-  tableHead.textContent = 'Name';
-  tableRow.appendChild(tableHead);
-  // theTable.appendChild(tableRow);
-  for( var i = 0; i < hours.length; i++){
-    var tableHead = document.createElement('th');
-    tableHead.textContent = hours[i];
-    tableRow.appendChild(tableHead);
+function renderTable(){
+  var thEl = document.createElement('th');
+  tdEl.textContent = "HIGH SCORES";
+  trEl.appendChild(thEl);
+  for (var i = 0; i < 5; i++) {
+    var trEl = document.createElement('tr');
+    tdEl = document.createElement('td');
+    tdEl.textContent = user[i].name;
+    trEl.appendChild(tdEl);
+    var tdEl = document.createElement('td');
+    
   }
-  var tableHead = document.createElement('th');
-  tableHead.textContent = 'Score';
-  tableRow.appendChild(tableHead);
-  theTable.appendChild(tableRow);
-
-
+  table.appendChild(trEl);
+};
