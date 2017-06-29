@@ -12,9 +12,11 @@ var timesClicked = 0;
 var round = 1;
 var cardBack = 'game-cards/bg.png';
 var score = 0;
-var gameStop = 5;
+var value = 0;
+var gameStop = 0;
 
 function ImgR1(name, path) {//This is our constructor function
+  
   this.name = name;
   this.path = path;
   arrayR1.push(this);
@@ -251,6 +253,7 @@ function winLose(event) {
       timer: 1000,
       showConfirmButton: false
     });
+    stop();
     setTimeout ( function(){  window.location.href = "page3.html";},500);
   }
 };
@@ -259,12 +262,27 @@ function winLose(event) {
 function startGame(event) {
   event.preventDefault();
   renderPics();
+  start();
   setTimeout(renderBacks, 7000);
   setTimeout(replaceImage,9000);
   table.removeEventListener('click', startGame);
   document.getElementById('pinhere').addEventListener('click', winLose);
 };
 
+function gameTimer() {
+  document.getElementById('demo').innerHTML = ++value;
+}
+var timerInterval = null;
+function start () {
+  stop();
+  value = 0;
+  timerInterval = setInterval(gameTimer, 1000);
+}
+var stop = function() {
+  var gameStop =  document.getElementById('demo').textContent;
+  console.log(gameStop);
+  clearInterval(timerInterval );
+};
 generateRay(arrayR2); //Make that array
 renderBacks(); //Append the hell out of it
 
