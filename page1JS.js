@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var data = [];
 var rData = ' ';
@@ -8,14 +8,14 @@ function User(name, age) {
   this.name = name;
   this.age = age;
   this.score = 0;
-  data.push(this)
-  }
+  data.push(this);
+}
 
-  function pushThing(otherThing) {
-    localStorage.clear();
-    var otherThingJSON = JSON.stringify(otherThing);
-    localStorage.things = otherThingJSON;
-  }
+function pushThing(otherThing) {
+  localStorage.clear();
+  var otherThingJSON = JSON.stringify(otherThing);
+  localStorage.things = otherThingJSON;
+}
 
 function readData(event) {
   event.preventDefault();
@@ -29,5 +29,5 @@ function readData(event) {
 
 
 
-document.getElementById('theForm').addEventListener('submit', readData)
+document.getElementById('theForm').addEventListener('submit', readData);
 document.getElementById('test').addEventListener('click', readData);

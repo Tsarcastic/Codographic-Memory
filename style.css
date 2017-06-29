@@ -1,4 +1,4 @@
-css ```html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -43,7 +43,6 @@ table {
 }
 #scoreTable {
     padding-top: 500px;
-    background-color: black;
 }
 /*Css Starts*/
 body {
@@ -94,21 +93,12 @@ h4 {
     padding: 40px 0;
 }
 h2{
-    background-color: black;
+    /*background-color: black;*/
     width: 100%;
   font-size: 40px;
   color: white;
     font-family: 'Orbitron', sans-serif;
 }
-/*h1:hover{
-  background-color: black;
-  opacity: .6;
-}
-/*h1{
-  font-size: 80px;
-  color:White;
-  /*background-color: rgba(204, 220,200, 0.6);black;*/
-/*}*/
 img{
   padding:25px;
 }
@@ -215,4 +205,3 @@ img{
     -o-transition-delay: 0s;
     transition-delay: 0s;
 }
-```
