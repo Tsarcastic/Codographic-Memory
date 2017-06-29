@@ -8,7 +8,7 @@ var arrayR4 = []; //Images for fourth round
 var newRay = []; //The current array
 var rightChoice = 0; //The correct choice for the game
 var timesClicked = 0;
-var round = 1
+var round = 1;
 var cardBack = 'game-cards/bg.png';
 var score = 0;
 
@@ -196,32 +196,39 @@ function winLose(event) {
   event.preventDefault();
   var target = event.target;
   if (target.name === rightChoice.name) {
-    alert('Congratulations! You got it!');
+    swal('Congratulations! You got it!', 'success');
+
     round++;
     newRay = [];
     if (round === 2) {
-      alert('Round 2!');
-      generateRay(arrayR1);
+
+      swal('Good job Next Round!');
+      setTimeout ( function(){generateRay(arrayR1);},5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
-    } else if (round ===3) {
-      alert('Round 3! Bowie alert');
-      generateRay(arrayR3);
+    } else if (round === 3) {
+      swal('Good job Round 3 Bowie alert!');
+      setTimeout ( function(){generateRay(arrayR3);},5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 4) {
-      alert('Round 4!');
-      generateRay(arrayR4);
+      swal('Great Job Now Round 4 !');
+      setTimeout ( function(){generateRay(arrayR4);},5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
 
     }
-  }  else {
-    alert('Sorry, that was already there.')
-    window.location.href = "page3.html"
+  } else {
+    swal({
+      title: "Sorry! You picked wrong one.",
+      // text: "I will close in 2 seconds.",
+      timer: 1000,
+      showConfirmButton: false
+    });
+    setTimeout ( function(){  window.location.href = "page3.html";},500);
   }
 };
 
@@ -230,8 +237,8 @@ function winLose(event) {
 function startGame(event) {
   event.preventDefault();
   renderPics();
-  setTimeout(renderBacks, 8000);
-  setTimeout(replaceImage,10000);
+  setTimeout(renderBacks, 7000);
+  setTimeout(replaceImage,9000);
   table.removeEventListener('click', startGame);
   document.getElementById('pinhere').addEventListener('click', winLose);
 };
