@@ -23,6 +23,12 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
+audio {
+  height: 10px
+  width: 50px;
+  opacity: .1;
+}
 body {
     line-height: 1;
 }
@@ -119,7 +125,7 @@ img{
     color: #FFF;
     background: transparent;
     font-family: 'Days One', sans-serif;
-        width: 600px;
+        width: 700px;
         height: 90px;
 }
 .button span {

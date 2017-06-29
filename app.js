@@ -191,7 +191,7 @@ function shuffle(array) {
 function clearImages() {
   table.innerHTML = ' ';
 }
-//Determines if a click is correct or not
+
 function winLose(event) {
   event.preventDefault();
   var target = event.target;
