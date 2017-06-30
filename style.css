@@ -47,13 +47,16 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-#scoreTable {
-    padding-top: 500px;
-}
+
 /*Css Starts*/
 p {
   font-family: 'Quicksand', sans-serif;
   letter-spacing: .25px;
+}
+#scoreTable {
+    padding-top: 500px;
+max-width: 600px;
+margin-left: 200px;
 }
 body {
 background-image: url("Img pictures/bg.jpg");
@@ -65,8 +68,8 @@ margin-right: auto;
 text-align: center;
 }
 #home {
-  background-color: black;
-  opacity: .9;
+  background-color: purple;
+  opacity: .7;
   color: white;
   width: 200px;
   height: 50px;
@@ -74,13 +77,14 @@ text-align: center;
   font-size: 30px;
   margin-left: auto;
   margin-right: auto;
-  bottom: 10px;
   margin-top: 50px;
   font-family: 'Orbitron', sans-serif;
+  border-radius: 5px;
+  padding: auto;
 }
 #play {
-  background-color: black;
-  opacity: .9;
+  background-color: blue;
+  opacity: .6;
   color: white;
   width: 200px;
   height: 50px;
@@ -91,9 +95,18 @@ text-align: center;
   bottom: 10px;
   margin-top: 50px;
   font-family: 'Orbitron', sans-serif;
+  border-radius: 5px;
 }
-#play:hover #home:hover {
+input{
+  font-size: 25px;
+  border-radius: 5px;
+}
+#play:hover {
+border-color: blue;
+}
+#home:hover {
     background-color: green;
+    opacity: .8;
 }
 header{
   padding-top: 40px;
@@ -119,13 +132,22 @@ h4 {
 @keyframes blink {
 to { color: white; }
 }
-h4 {
+h4  {
 color: green;
 animation: blink 1s steps(2, start) infinite;
 }
-
+@keyframes blink {
+to { color: white; }
+}
+#start {
+color: green;
+animation: blink 1s steps(2, start) infinite;
+}
+#start{
+  font-size: 20px;
+  border-radius: 5px;
+}
 h2{
-    /*background-color: black;*/
     width: 100%;
   font-size: 40px;
   color: white;
@@ -243,44 +265,27 @@ img{
   color: white;
   font-size: 30px;
 padding-top: 20px;
-}
-
-#profile {
-  display: block;
-  column-count: 2;
-  width: 450px;
-  background-position: 0 auto;
-  text-decoration: none;
+float: right;
 }
 
 p{
   color: white;
 }
-#chbio {
-  position: absolute;
-  width: 300px;
-  padding-left: 700px;
-  margin-top: -135px;
+
+td{
   text-align: left;
 }
-#bbio {
-  position: absolute;
-  width: 300px;
-  padding-right: 450px;
-  margin-top: -500px;
-  text-align: right;
+#ymc{
+  background-color: red;
+  opacity: .5;
 }
-#cbio {
-  position: absolute;
-  width: 300px;
-  padding-right: 700px;
-  margin-top: -150px;
-  text-align: right;
+.textwr{
+
+  color: white;
+
 }
-#ebio {
-  position: absolute;
-  width: 300px;
-  padding-left: 700px;
-  margin-top: -490px;
-  text-align: left;
+.textwrap{
+  display:inline-block;
+
+
 }
