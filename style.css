@@ -238,11 +238,11 @@ img{
     transition-delay: 0s;
 }
 #demo{
-  height: 50px;
+  height:40px;
   width: 50px;
   color: white;
   font-size: 30px;
-
+padding-top: 20px;
 }
 
 #profile {
