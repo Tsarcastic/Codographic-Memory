@@ -22,11 +22,7 @@ function readData(event) {
   var newUser = new User(name);
   pushThing(newUser);
   console.log(newUser);
-  window.location.href = "page2.html"
+  window.location.href = 'page2.html';
 }
-
-
-
-
 document.getElementById('theForm').addEventListener('submit', readData);
 document.getElementById('play').addEventListener('click', readData);

@@ -2,7 +2,7 @@
 var userStats = {};
 
 var table = document.getElementById('scoreTable');
-var users = []
+var users = [];
 
 function pullThing() {
   var retrievedThing = localStorage.things;
@@ -10,7 +10,7 @@ function pullThing() {
   var parsedThing = JSON.parse(retrievedThing);
   console.log(parsedThing);
   users.push(parsedThing);
-  }
+};
 
 function User(name, score) {
   this.name = name;
@@ -19,8 +19,6 @@ function User(name, score) {
 }
 
 pullThing();
-
-
 function renderTable(){ //Appending the users array to the page
   // var thEl = document.createElement('th');
   // tdEl.textContent = "HIGH SCORES";
@@ -36,17 +34,14 @@ function renderTable(){ //Appending the users array to the page
     table.appendChild(trEl);
   };
 };
-
 new User('Esther', 50);
 new User('Cam', 65);
 new User('Chai', 53);
 new User('Brendan', 80 );
 new User('USA', 46);
 new User('xxxdontDoDrugs', 110);
-
 users.sort(compare);
 renderTable();
-
 function compare(a,b) {
   if (a.score < b.score)
     return -1;
@@ -54,4 +49,3 @@ function compare(a,b) {
     return 1;
   return 0;
 }
-

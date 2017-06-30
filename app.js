@@ -1,12 +1,12 @@
 'use strict';
 var table = document.getElementById('pinhere'); //Where we will be appending/interacting with.
 var allArrays = []; //This is ALL our arrays
-var arrayR1 = [];  //Images for first round
+var arrayR1 = []; //Images for first round
 var arrayR2 = []; //Images for second round
 var arrayR3 = []; //Images for third round
 var arrayR4 = []; //Images for fourth round
 var newRay = []; //The array used in the functions - changed depending on round & phase
-var users = [] //To keep track of our user
+var users = []; //To keep track of our user
 var rightChoice = 0; //The correct choice for the game
 var timesClicked = 0;
 var round = 1;
@@ -15,12 +15,10 @@ var score = 0;
 var value = 0;
 var gameStop = 0;
 
-function ImgR1(name, path) {//This is our constructor function
-
+function ImgR1(name, path) { //This is our constructor function
   this.name = name;
   this.path = path;
   arrayR1.push(this);
-  // console.log(this.name + "was sucessfully created.");
 }
 
 function ImgR2(name, path) {
@@ -45,7 +43,7 @@ function User(name, age) {
   this.name = name;
   this.score = 0;
   data.push(this);
-}
+};
 
 allArrays.push(arrayR1);
 allArrays.push(arrayR2);
@@ -144,11 +142,11 @@ function clearImages() {
   table.innerHTML = ' ';
 }
 // Renders newRay to our second page
-function renderPics(theArray){
+function renderPics(theArray) {
   var point = 0;
   clearImages();
   var trEl = document.createElement('tr');
-  for (var j = 0; j < 9; j++){
+  for (var j = 0; j < 9; j++) {
     var imgEl = document.createElement('img');
     imgEl.src = newRay[point].path;
     imgEl.name = newRay[point].name;
@@ -158,10 +156,10 @@ function renderPics(theArray){
   table.appendChild(trEl);
 };
 //Renders the card backs
-function renderBacks(){
+function renderBacks() {
   clearImages();
   var trEl = document.createElement('tr');
-  for (var j = 0; j < 9; j++){
+  for (var j = 0; j < 9; j++) {
     var imgEl = document.createElement('img');
     imgEl.src = cardBack;
     trEl.appendChild(imgEl);
@@ -178,21 +176,18 @@ function replaceImage() {
 }
 //Knuth shuffle - thanks Fisher-Yates!
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
-
     // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
 //wipes the existing images from the screen
@@ -205,25 +200,29 @@ function winLose(event) {
   var target = event.target;
   if (target.name === rightChoice.name) {
     swal('Congratulations! You got it!', 'success');
-
     round++;
     newRay = [];
     if (round === 2) {
-
-      swal('Good Job Next Round!');
-      setTimeout ( function(){generateRay(arrayR1);},5000);
+      swal('Good Job  press StartGame for Next Round!', 'success');
+      setTimeout(function() {
+        generateRay(arrayR2);
+      }, 5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 3) {
-      swal('Good job Round 3 Bowie Alert!');
-      setTimeout ( function(){generateRay(arrayR3);},5000);
+      swal('Good job Bowie Alert! press startGame for Round 3 ', 'success');
+      setTimeout(function() {
+        generateRay(arrayR3);
+      }, 5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 4) {
-      swal('Thank you, but the princess is in another castle!');
-      setTimeout ( function(){generateRay(arrayR4);},5000);
+      swal('Thank you, but the princess is in another castle! press startGame for THE ROUND');
+      setTimeout(function() {
+        generateRay(arrayR4);
+      }, 5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
@@ -233,23 +232,33 @@ function winLose(event) {
   } else {
     swal({
       title: "Sorry! You picked Wrong one. GAME OVER",
-      // text: "I will close in 2 seconds.",
       showConfirmButton: false
     });
     stop();
-    setTimeout ( function(){  window.location.href = "page3.html";},1500);
+    setTimeout(function() {
+      window.location.href = "page3.html";
+    }, 2000);
   }
 };
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
 //itself as an event listener & adds the listener for right/wrong choice.
 function startGame(event) {
-  event.preventDefault();
-  renderPics();
-  start();
-  setTimeout(renderBacks, 7000);
-  setTimeout(replaceImage,9000);
-  table.removeEventListener('click', startGame);
-  document.getElementById('pinhere').addEventListener('click', winLose);
+  if (round === 1) {
+    event.preventDefault();
+    renderPics();
+    start();
+    setTimeout(renderBacks, 9000);
+    setTimeout(replaceImage, 11500);
+    table.removeEventListener('click', startGame);
+    document.getElementById('pinhere').addEventListener('click', winLose);
+  } else {
+    event.preventDefault();
+    renderPics();
+    setTimeout(renderBacks, 9000);
+    setTimeout(replaceImage,11500);
+    table.removeEventListener('click', startGame);
+    document.getElementById('pinhere').addEventListener('click', winLose);
+  }
 };
 //Timer for score
 function gameTimer() {
@@ -259,7 +268,7 @@ function gameTimer() {
 function pullThing() {
   var retrievedThing = localStorage.things; //Pulls unparsed info from LS
   console.log(retrievedThing);
-  var parsedThing = JSON.parse(retrievedThing);//Parses retrievedThing
+  var parsedThing = JSON.parse(retrievedThing); //Parses retrievedThing
   console.log(parsedThing.name);
   users.push(parsedThing).name;
 };
@@ -269,29 +278,26 @@ function pushThing() {
   var otherThingJSON = JSON.stringify(users[0]);
   localStorage.things = otherThingJSON;
 }
-
-
 var timerInterval = null;
-function start () {
+
+function start() {
   stop();
   value = 0;
   timerInterval = setInterval(gameTimer, 1000);
 }
 var stop = function() {
-  var gameStop =  document.getElementById('demo').textContent;
+  var gameStop = document.getElementById('demo').textContent;
   console.log(gameStop);
   if (round < 5) {
     users[0].score = 999;
     pushThing();
-  } else {
-
-  }
-  clearInterval(timerInterval );
+  } else {}
+  clearInterval(timerInterval);
 };
 
 pullThing();
-generateRay(arrayR2); //Make that array
+generateRay(arrayR1); //Make that array
 renderBacks(); //Append the hell out of it
 swal('You will have 9 seconds to memorize the cards.The cards will then be shuffled and one will be replaced! Select the new card! press StartGame when ready');
-
+// start();
 document.getElementById('start').addEventListener('click', startGame);
