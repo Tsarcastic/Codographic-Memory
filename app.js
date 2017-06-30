@@ -210,13 +210,13 @@ function winLose(event) {
     newRay = [];
     if (round === 2) {
 
-      swal('Good job Next Round!');
+      swal('Good Job Next Round!');
       setTimeout ( function(){generateRay(arrayR1);},5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 3) {
-      swal('Good job Round 3 Bowie alert!');
+      swal('Good job Round 3 Bowie Alert!');
       setTimeout ( function(){generateRay(arrayR3);},5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
@@ -228,17 +228,16 @@ function winLose(event) {
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 5) {
-      swal('CONGRATULATIONS! YOU WIN!')
+      swal('CONGRATULATIONS! YOU WIN!');
     }
   } else {
     swal({
-      title: "Sorry! You picked wrong one.",
+      title: "Sorry! You picked Wrong one. GAME OVER",
       // text: "I will close in 2 seconds.",
-      timer: 1000,
       showConfirmButton: false
     });
     stop();
-    setTimeout ( function(){  window.location.href = "page3.html";},500);
+    setTimeout ( function(){  window.location.href = "page3.html";},1500);
   }
 };
 //For the first part of the game - Switches to card backs, then the shuffled set. Removes
@@ -263,8 +262,7 @@ function pullThing() {
   var parsedThing = JSON.parse(retrievedThing);//Parses retrievedThing
   console.log(parsedThing.name);
   users.push(parsedThing).name;
-  console.log(users[0])
-  }
+};
 //Pushes the user's score into localStorage
 function pushThing() {
   localStorage.clear();
@@ -294,5 +292,6 @@ var stop = function() {
 pullThing();
 generateRay(arrayR2); //Make that array
 renderBacks(); //Append the hell out of it
+swal('You will have 9 seconds to memorize the cards.The cards will then be shuffled and one will be replaced! Select the new card! press StartGame when ready');
 
 document.getElementById('start').addEventListener('click', startGame);
