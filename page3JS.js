@@ -6,9 +6,7 @@ var users = [];
 
 function pullThing() {
   var retrievedThing = localStorage.things;
-  console.log(retrievedThing);
   var parsedThing = JSON.parse(retrievedThing);
-  console.log(parsedThing);
   users.push(parsedThing);
 };
 
@@ -34,12 +32,12 @@ function renderTable(){ //Appending the users array to the page
     table.appendChild(trEl);
   };
 };
-new User('Esther', 50);
-new User('Cam', 65);
-new User('Chai', 53);
-new User('Brendan', 80 );
-new User('USA', 46);
-new User('xxxdontDoDrugs', 110);
+new User('Audience', 117);
+new User('Cam', 139);
+new User('Chai', 134);
+new User('Brendan', 155 );
+new User('USA', 130);
+new User('xxxDontDoDrugsxxx', 140);
 users.sort(compare);
 renderTable();
 function compare(a,b) {
