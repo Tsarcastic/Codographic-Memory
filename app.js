@@ -205,9 +205,9 @@ function winLose(event) {
     newRay = [];
     if (round === 2) {
       swal('Good Job  press StartGame for Next Round!', 'success');
-      setTimeout(function() {
-        generateRay(arrayR2);
-      }, 5000);
+      // setTimeout(function() {
+      generateRay(arrayR2);
+      // }, 5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
@@ -220,10 +220,10 @@ function winLose(event) {
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
     } else if (round === 4) {
-      swal('Thank you, but the princess is in another castle! press startGame for THE ROUND');
-      setTimeout(function() {
-        generateRay(arrayR4);
-      }, 5000);
+      swal('Thank you, but the princess is in another castle! press StartGame for THE Final ROUND');
+      // setTimeout(function() {
+      generateRay(arrayR4);
+      // }, 5000);
       renderBacks();
       document.getElementById('pinhere').removeEventListener('click', winLose);
       document.getElementById('start').addEventListener('click', startGame);
