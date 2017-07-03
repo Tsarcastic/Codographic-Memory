@@ -173,7 +173,8 @@ function replaceImage() {
   var rightChoice = newRay[9];
   shuffle(newRay);
   renderPics(newRay);
-}
+  document.getElementById('pinhere').addEventListener('click', winLose)
+  }
 //Knuth shuffle - thanks Fisher-Yates!
 function shuffle(array) {
   var currentIndex = array.length,
@@ -250,14 +251,12 @@ function startGame(event) {
     setTimeout(renderBacks, 9000);
     setTimeout(replaceImage, 11500);
     table.removeEventListener('click', startGame);
-    document.getElementById('pinhere').addEventListener('click', winLose);
   } else {
     event.preventDefault();
     renderPics();
     setTimeout(renderBacks, 9000);
     setTimeout(replaceImage,11500);
     table.removeEventListener('click', startGame);
-    document.getElementById('pinhere').addEventListener('click', winLose);
   }
 };
 //Timer for score
